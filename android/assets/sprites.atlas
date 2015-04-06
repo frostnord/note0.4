@@ -1,0 +1,76 @@
+
+sprites.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+BassButton
+  rotate: false
+  xy: 2, 53
+  size: 202, 201
+  orig: 202, 201
+  offset: 0, 0
+  index: -1
+LearningScrip_mid
+  rotate: false
+  xy: 538, 133
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: -1
+PracticeBass_middle
+  rotate: false
+  xy: 783, 134
+  size: 119, 120
+  orig: 119, 120
+  offset: 0, 0
+  index: -1
+PracticeScrip_right
+  rotate: false
+  xy: 661, 134
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+ScripButton
+  rotate: false
+  xy: 206, 54
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+SetingsButton
+  rotate: false
+  xy: 408, 76
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+TreningBass_left
+  rotate: false
+  xy: 904, 135
+  size: 118, 119
+  orig: 118, 119
+  offset: 0, 0
+  index: -1
+TreningScrip_left
+  rotate: false
+  xy: 904, 14
+  size: 118, 119
+  orig: 118, 119
+  offset: 0, 0
+  index: -1
+note
+  rotate: false
+  xy: 408, 126
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+sound_on
+  rotate: false
+  xy: 2, 2
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
