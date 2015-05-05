@@ -1,49 +1,65 @@
 package com.note.actors;
 
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.note.stages.GameStage;
-import com.note.utils.AssetsManager;
+import com.note.enums.GameState;
+import com.note.game.Assets;
+import com.note.screens.DirectedGame;
+import com.note.screens.ScripTreningScreen;
 import com.note.utils.Constants;
+import com.note.utils.GameManager;
 
 import java.util.Random;
 
 
 public class Note extends Actor {
 
-    private final TextureRegion textureRegion;
+    private TextureRegion textureRegion;
+    private final DirectedGame game;
     private float index=0;
-    private float actorHeight;
+    private GameState gameState;
+    private String noteState;
+    private Vector2 position;
 
-
-
+    public Vector2 dimension;
+    public Vector2 origin;
+    public Vector2 scale;
+    public float rotation1;
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-//        float ppx = Constants.APP_WIDTH /24 ;
-//        System.out.println(ppx);
 
-        batch.draw(textureRegion, (Constants.APP_WIDTH /(23)) * index-11,actorHeight , Constants.APP_WIDTH / 12,Constants.APP_HEIGHT /10);
+//        if (GameManager.ourInstance.getGameState()== GameState.FIRSTPRESSED) {
+        if (noteState.equals("firstPressed")) {
+            textureRegion = Assets.instance.note.note_grey;
+        }else {
+            textureRegion = Assets.instance.note.note;
         }
-
-//
-    public Note() {
-        actorHeight = Constants.APP_HEIGHT - Constants.APP_HEIGHT/5;
-        randomNote();
-        textureRegion = AssetsManager.getTextureAtlas().findRegion(Constants.NOTE_REGION_NAME);
-//        this.index= index;
+            batch.draw(textureRegion, position.x, position.y, Constants.APP_WIDTH / 12, Constants.APP_HEIGHT / 10);
     }
+    public Note(DirectedGame directedGame) {
+        this.gameState = GameManager.ourInstance.getGameState();
+        this.game = directedGame;
+        randomNote();
+        position = new Vector2(Constants.APP_WIDTH / (23) * index - 11,Constants.APP_HEIGHT - (Constants.APP_HEIGHT/5));
+//        this.position.y = 400;
+        noteState ="not";
+
+        dimension = new Vector2(1, 1);
+        origin = new Vector2();
+        scale = new Vector2(1, 1);
+        rotation1 = 0;
+    }
+    public void setNoteState(String state){
+        noteState = state;
+    }
+
     private float randomNote(){
         Random rand = new Random();
-//        int index = 0;
-//        index = rand.nextInt(arr.length);
         index = rand.nextInt(23);
         System.out.println(index);
 
@@ -75,10 +91,10 @@ public class Note extends Actor {
 
     public void act(float delta) {
         super.act(delta);
-        actorHeight -= 1;
-        System.out.println(actorHeight);
+        position.y -= 1;
+//        System.out.println(actorY);
 
-        if (actorHeight <=  Keybord.getTextuerKeybordHeight()) {
+        if (position.y <= ScripTreningScreen.keybordHeight()) {
             remove();
 
         }

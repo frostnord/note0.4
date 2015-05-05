@@ -1,14 +1,12 @@
 package com.note.actors.menu;
 
 
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.note.utils.AssetsManager;
-import com.note.utils.Constants;
+//import com.note.utils.AssetsManager;
 
 
 public abstract class GameButton extends Button {
@@ -23,8 +21,8 @@ public abstract class GameButton extends Button {
         setHeight(bounds.height);
         setBounds(bounds.x, bounds.y, bounds.width, bounds.height);
         skin = new Skin();
-        AssetsManager.loadAssets();
-        skin.addRegions(AssetsManager.getTextureAtlas());
+//        AssetsManager.loadAssets();
+//        skin.addRegions(AssetsManager.getTextureAtlas());
 
         loadTextureRegion();
         addListener(new ClickListener() {

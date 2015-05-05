@@ -133,7 +133,7 @@ public class GameStage extends Stage {
     }
     public void setupGorizNote(){
 
-        addActor(new Note());
+//        addActor(new Note());
     }
 
 

@@ -1,0 +1,12 @@
+{
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle:
+	{
+	  ScripButton:{down:ScripButton, up:ScripButton},
+	  BassButton:{down:BassButton, up:BassButton},
+	  SetingsButton:{down:SetingsButton, up:SetingsButton},
+	  TreningScrip_left:{down:TreningScrip_left, up:TreningScrip_left},
+	  LearningScrip_mid:{down:LearningScrip_mid, up:LearningScrip_mid},
+	  PracticeScrip_right:{down:PracticeScrip_right, up:PracticeScrip_right},
+	  keybord:{down:keybord, up:keybord},
+	},
+}

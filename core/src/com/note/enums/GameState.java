@@ -2,7 +2,7 @@ package com.note.enums;
 
 
 public enum GameState {
-    RUNNING,
+    FIRSTPRESSED,
     PAUSED,
     OVER,
     ABOUT

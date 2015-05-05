@@ -7,7 +7,7 @@ public class GameManager {
 
     private GameState gameState;
 
-    private static GameManager ourInstance = new GameManager();
+    public static GameManager ourInstance = new GameManager();
 
     public static final String PREFERENCES_NAME = "preferences";
 
@@ -16,9 +16,12 @@ public class GameManager {
     }
 
     private GameManager() {
-        gameState = GameState.OVER;
+        gameState = GameState.FIRSTPRESSED;
     }
     public GameState getGameState() {
         return gameState;
+    }
+    public void setGameState (GameState a){
+        gameState = a;
     }
 }
