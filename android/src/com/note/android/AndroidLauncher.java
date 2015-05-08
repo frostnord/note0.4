@@ -1,6 +1,7 @@
 package com.note.android;
 
 import android.os.Bundle;
+
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.note.Note;
