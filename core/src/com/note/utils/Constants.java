@@ -4,6 +4,11 @@ package com.note.utils;
 public class Constants {
 //    800 480
 
+    // Visible game world is 5 meters wide
+    public static final float VIEWPORT_WIDTH = 5.0f;
+    // Visible game world is 5 meters tall
+    public static final float VIEWPORT_HEIGHT = 5.0f;
+
     public static final int APP_WIDTH = 800;
     public static final int APP_HEIGHT = 480;
 

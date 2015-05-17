@@ -65,7 +65,7 @@ public class LoadingScreen extends AbstractGameScreen {
         this.game.manager.finishLoading();
         this.stage = new Stage();
         this.stage.setViewport(new StretchViewport(800.0f, 480.0f));
-        this.atlas = (TextureAtlas)this.game.manager.get("sprites.atlas", TextureAtlas.class);
+        this.atlas = this.game.manager.get("sprites.atlas", TextureAtlas.class);
         this.layerBackground = this.buildBackgroundLayer();
         this.layerLoadingBar = this.buildLoadingBarLayer();
         this.stage.clear();
@@ -116,7 +116,7 @@ public class LoadingScreen extends AbstractGameScreen {
                     this.stage.getBatch().begin();
                     this.fontPercent = this.defaultBig;
 //                    this.fontPercent.setColor(1.0f, 1.0f, 1.0f, 1.0f);
-//                    this.fontPercent.drawMultiLine(this.stage.getBatch(), (CharSequence)("" + this.displayPercent + "%"), 30.0f + (800.0f - this.fontPercent.getBounds((CharSequence) Float.toString((float)((float)this.displayPercent))).width) / 2.0f, 191.0f, 0.0f, BitmapFont.HAlignment.CENTER);
+                    this.fontPercent.drawMultiLine(this.stage.getBatch(), (CharSequence)("" + this.displayPercent + "%"), 30.0f + (800.0f - this.fontPercent.getBounds((CharSequence) Float.toString((float)((float)this.displayPercent))).width) / 2.0f, 191.0f, 0.0f, BitmapFont.HAlignment.CENTER);
                     this.stage.getBatch().end();
                     return;
                 }

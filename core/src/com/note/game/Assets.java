@@ -23,6 +23,7 @@ public class Assets implements AssetErrorListener, Disposable {
     private AssetManager assetManager;
     public AssetNote note;
     public AssetFonts fonts;
+    public AssetDecoration decoration;
 
 
     private Assets() {
@@ -32,13 +33,13 @@ public class Assets implements AssetErrorListener, Disposable {
     public void dispose() {
         this.assetManager.dispose();
         this.fonts.defaultSmall.dispose();
-//        this.fonts.defaultNormal.dispose();
+        this.fonts.defaultNormal.dispose();
 //        this.fonts.defaultBig.dispose();
 //        this.fonts.levelComplete.dispose();
 //        this.fonts.levelCompleted.dispose();
 //        this.fonts.selectCharacter.dispose();
 //        this.fonts.selectLevel.dispose();
-//        this.fonts.heroInfo.dispose();
+        this.fonts.heroInfo.dispose();
 //        this.fonts.heroStore.dispose();
     }
 
@@ -51,12 +52,31 @@ public class Assets implements AssetErrorListener, Disposable {
     }
 
     public class AssetNote {
-        public final AtlasRegion note;
+        public final AtlasRegion noteRedDo;
+        public final AtlasRegion noteOrangeRe;
+        public final AtlasRegion noteYellowMi;
+        public final AtlasRegion noteBlueSol;
+        public final AtlasRegion noteGreenFa;
+        public final AtlasRegion noteSiniiLa;
+        public final AtlasRegion notePurpleSi;
         public final AtlasRegion note_grey;
 
         public AssetNote (TextureAtlas atlas) {
-            note = atlas.findRegion("note");
+            noteRedDo = atlas.findRegion("noteRedDo");
+            noteOrangeRe = atlas.findRegion("noteOrangeRe");
+            noteYellowMi = atlas.findRegion("noteYellowMi");
+            noteGreenFa = atlas.findRegion("noteGreenFa");
+            noteBlueSol = atlas.findRegion("noteBlueSol");
+            noteSiniiLa = atlas.findRegion("noteSiniiLa");
+            notePurpleSi = atlas.findRegion("notePurpleSi");
             note_grey = atlas.findRegion("note_grey");
+        }
+    }
+    public class AssetDecoration {
+        public final TextureAtlas.AtlasRegion lineImg;
+
+        public AssetDecoration(TextureAtlas atlas) {
+            this.lineImg = atlas.findRegion("lineImg");
         }
     }
 
@@ -79,6 +99,7 @@ public class Assets implements AssetErrorListener, Disposable {
         }
         note = new AssetNote(atlas);
         this.fonts = new AssetFonts();
+        decoration= new AssetDecoration(atlas);
 
     }
 
@@ -111,11 +132,11 @@ public class Assets implements AssetErrorListener, Disposable {
 
     public class AssetFonts {
 //        public final BitmapFont defaultBig;
-//        public final BitmapFont defaultNormal;
+        public final BitmapFont defaultNormal;
         public final BitmapFont defaultSmall;
-//        public final BitmapFont heroInfo;
+        public final BitmapFont heroInfo;
 //        public final BitmapFont heroStore;
-//        public final BitmapFont levelComplete;
+        public final BitmapFont levelComplete;
 //        public final BitmapFont levelCompleted;
 //        public final BitmapFont selectCharacter;
 //        public final BitmapFont selectLevel;
@@ -127,14 +148,14 @@ public class Assets implements AssetErrorListener, Disposable {
             this.defaultSmall = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
             this.defaultSmall.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
             this.defaultSmall.setScale(1.0f, -1.0f);
-//            freeTypeFontParameter.size = 20;
-//            this.heroInfo = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
-//            this.heroInfo.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-//            this.heroInfo.setScale(1.0f, 1.0f);
-//            freeTypeFontParameter.size = 25;
-//            this.defaultNormal = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
-//            this.defaultNormal.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-//            this.defaultNormal.setScale(1.0f, -1.0f);
+            freeTypeFontParameter.size = 20;
+            this.heroInfo = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
+            this.heroInfo.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            this.heroInfo.setScale(1.0f, 1.0f);
+            freeTypeFontParameter.size = 25;
+            this.defaultNormal = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
+            this.defaultNormal.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            this.defaultNormal.setScale(1.0f, -1.0f);
 //            this.heroStore = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
 //            this.heroStore.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 //            this.heroStore.setScale(1.0f, 1.0f);
@@ -142,9 +163,9 @@ public class Assets implements AssetErrorListener, Disposable {
 //            this.defaultBig = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
 //            this.defaultBig.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 //            this.defaultBig.setScale(1.0f, -1.0f);
-//            this.levelComplete = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
-//            this.levelComplete.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-//            this.levelComplete.setScale(1.0f, 1.0f);
+            this.levelComplete = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
+            this.levelComplete.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            this.levelComplete.setScale(1.0f, 1.0f);
 //            freeTypeFontParameter.size = 35;
 //            this.levelCompleted = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
 //            this.levelCompleted.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);

@@ -16,6 +16,8 @@ import com.note.game.Assets;
 
 public class FirstMenuScreen extends AbstractGameScreen {
 
+    private static final String TAG = FirstMenuScreen.class.getName();
+
     private Table layerBackground;
     private Image imgBackground;
     private Stage stage;
