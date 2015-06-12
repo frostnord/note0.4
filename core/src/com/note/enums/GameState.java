@@ -2,8 +2,8 @@ package com.note.enums;
 
 
 public enum GameState {
-    FIRSTPRESSED,
-    PAUSED,
+    WAITKEYPRESS,
+    MOVE,
     OVER,
     ABOUT
 }

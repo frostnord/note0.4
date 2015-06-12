@@ -6,168 +6,238 @@ filter: Nearest,Nearest
 repeat: none
 BassButton
   rotate: false
-  xy: 802, 785
-  size: 200, 200
-  orig: 200, 200
+  xy: 802, 599
+  size: 205, 206
+  orig: 205, 206
   offset: 0, 0
   index: -1
 LearningScrip_mid
   rotate: false
-  xy: 802, 433
-  size: 150, 150
-  orig: 150, 150
-  offset: 0, 0
-  index: -1
-PracticeBass_middle
-  rotate: false
-  xy: 802, 10
-  size: 119, 120
-  orig: 119, 120
+  xy: 802, 412
+  size: 186, 186
+  orig: 186, 186
   offset: 0, 0
   index: -1
 PracticeScrip_right
   rotate: false
-  xy: 802, 282
-  size: 150, 150
-  orig: 150, 150
+  xy: 802, 225
+  size: 186, 186
+  orig: 186, 186
   offset: 0, 0
   index: -1
 ScripButton
   rotate: false
-  xy: 802, 584
-  size: 200, 200
-  orig: 200, 200
+  xy: 802, 806
+  size: 206, 206
+  orig: 206, 206
   offset: 0, 0
   index: -1
 SetingsButton
   rotate: false
-  xy: 953, 535
+  xy: 51, 2
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 TreningScrip_left
   rotate: false
-  xy: 802, 131
-  size: 150, 150
-  orig: 150, 150
+  xy: 802, 38
+  size: 186, 186
+  orig: 186, 186
   offset: 0, 0
   index: -1
-background
+backgroundGame
   rotate: false
-  xy: 1, 505
+  xy: 1, 532
   size: 800, 480
   orig: 800, 480
   offset: 0, 0
   index: -1
-keybord
+backgroundMenu
   rotate: false
-  xy: 1, 76
-  size: 800, 127
-  orig: 800, 127
+  xy: 1, 51
+  size: 800, 480
+  orig: 800, 480
   offset: 0, 0
   index: -1
-line
+doKeyImg
   rotate: false
-  xy: 1003, 875
-  size: 5, 110
-  orig: 5, 110
+  xy: 989, 333
+  size: 33, 132
+  orig: 33, 132
+  offset: 0, 0
+  index: -1
+laKeyImg
+  rotate: false
+  xy: 989, 466
+  size: 34, 132
+  orig: 34, 132
   offset: 0, 0
   index: -1
 lineImg
   rotate: false
-  xy: 1003, 806
+  xy: 1009, 944
   size: 5, 68
   orig: 5, 68
   offset: 0, 0
   index: -1
-lines
+miKeyImg
   rotate: false
-  xy: 1, 204
-  size: 800, 300
-  orig: 800, 300
+  xy: 989, 200
+  size: 33, 132
+  orig: 33, 132
   offset: 0, 0
   index: -1
-note
+reKeyImg
   rotate: false
-  xy: 1, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-noteRedDo
-  rotate: false
-  xy: 1, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-noteBlueSol
-  rotate: false
-  xy: 102, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-noteGreenFa
-  rotate: false
-  xy: 203, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-noteOrangeRe
-  rotate: false
-  xy: 304, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-notePurpleSi
-  rotate: false
-  xy: 405, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-noteSiniiLa
-  rotate: false
-  xy: 506, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-noteYellowMi
-  rotate: false
-  xy: 607, 1
-  size: 100, 74
-  orig: 100, 74
-  offset: 0, 0
-  index: -1
-note_grey
-  rotate: false
-  xy: 922, 56
-  size: 100, 74
-  orig: 100, 74
+  xy: 989, 67
+  size: 33, 132
+  orig: 33, 132
   offset: 0, 0
   index: -1
 sound_on
   rotate: false
-  xy: 708, 26
+  xy: 1, 1
   size: 49, 49
   orig: 49, 49
   offset: 0, 0
   index: -1
 
 sprites2.png
-size: 128,128
+size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+PracticeBass_middle
+  rotate: false
+  xy: 469, 1
+  size: 119, 120
+  orig: 119, 120
+  offset: 0, 0
+  index: -1
+ScripGorZnak
+  rotate: false
+  xy: 802, 820
+  size: 81, 203
+  orig: 81, 203
+  offset: 0, 0
+  index: -1
+ScripVertZnak
+  rotate: false
+  xy: 1, 106
+  size: 467, 152
+  orig: 467, 152
+  offset: 0, 0
+  index: -1
 TreningBass_left
   rotate: false
-  xy: 1, 1
+  xy: 884, 904
   size: 118, 119
   orig: 118, 119
+  offset: 0, 0
+  index: -1
+keybord
+  rotate: false
+  xy: 1, 259
+  size: 800, 132
+  orig: 800, 132
+  offset: 0, 0
+  index: -1
+keybord2
+  rotate: false
+  xy: 469, 122
+  size: 245, 136
+  orig: 245, 136
+  offset: 0, 0
+  index: -1
+lines
+  rotate: false
+  xy: 1, 392
+  size: 800, 300
+  orig: 800, 300
+  offset: 0, 0
+  index: -1
+linesGoriz
+  rotate: false
+  xy: 1, 693
+  size: 800, 330
+  orig: 800, 330
+  offset: 0, 0
+  index: -1
+note
+  rotate: false
+  xy: 1, 31
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+noteRedDo
+  rotate: false
+  xy: 1, 31
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+noteBlueSol
+  rotate: false
+  xy: 589, 47
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+noteGreenFa
+  rotate: false
+  xy: 884, 829
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+noteOrangeRe
+  rotate: false
+  xy: 102, 31
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+notePurpleSi
+  rotate: false
+  xy: 203, 31
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+noteSiniiLa
+  rotate: false
+  xy: 304, 31
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+noteYellowMi
+  rotate: false
+  xy: 749, 184
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+note_grey
+  rotate: false
+  xy: 749, 109
+  size: 100, 74
+  orig: 100, 74
+  offset: 0, 0
+  index: -1
+siKeyImg
+  rotate: false
+  xy: 715, 126
+  size: 33, 132
+  orig: 33, 132
+  offset: 0, 0
+  index: -1
+solKeyImg
+  rotate: false
+  xy: 802, 687
+  size: 33, 132
+  orig: 33, 132
   offset: 0, 0
   index: -1

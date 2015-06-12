@@ -9,5 +9,6 @@
 	  PracticeScrip_right:{down:PracticeScrip_right, up:PracticeScrip_right},
 	  keybord:{down:keybord, up:keybord},
 	  lines:{down:lines, up:lines},
+	  keybord2:{down:keybord2, up:keybord2},
 	},
 }

@@ -14,9 +14,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.utils.Disposable;
 
-/**
- * Created by 1 on 13.04.2015.
- */
 public class Assets implements AssetErrorListener, Disposable {
     public static final String TAG = Assets.class.getName();
     public static final Assets instance = new Assets();
@@ -24,6 +21,7 @@ public class Assets implements AssetErrorListener, Disposable {
     public AssetNote note;
     public AssetFonts fonts;
     public AssetDecoration decoration;
+    public AssetNoteImg noteImg;
 
 
     private Assets() {
@@ -35,8 +33,8 @@ public class Assets implements AssetErrorListener, Disposable {
         this.fonts.defaultSmall.dispose();
         this.fonts.defaultNormal.dispose();
 //        this.fonts.defaultBig.dispose();
-//        this.fonts.levelComplete.dispose();
-//        this.fonts.levelCompleted.dispose();
+        this.fonts.levelComplete.dispose();
+        this.fonts.levelCompleted.dispose();
 //        this.fonts.selectCharacter.dispose();
 //        this.fonts.selectLevel.dispose();
         this.fonts.heroInfo.dispose();
@@ -49,6 +47,27 @@ public class Assets implements AssetErrorListener, Disposable {
 
     public void error(String string, Class class_, Throwable throwable) {
         Gdx.app.error(TAG, "Couldn't load asset '" + string + "'", (Throwable)((Exception)throwable));
+    }
+
+    public class AssetNoteImg {
+
+        public final AtlasRegion doKeyImg;
+        public final AtlasRegion reKeyImg;
+        public final AtlasRegion solKeyImg;
+        public final AtlasRegion laKeyImg;
+        public final AtlasRegion siKeyImg;
+        public final AtlasRegion miKeyImg;
+
+
+        public AssetNoteImg(TextureAtlas atlas) {
+            doKeyImg = atlas.findRegion("doKeyImg");
+            miKeyImg = atlas.findRegion("miKeyImg");
+            reKeyImg = atlas.findRegion("reKeyImg");
+            solKeyImg = atlas.findRegion("solKeyImg");
+            laKeyImg = atlas.findRegion("laKeyImg");
+            siKeyImg = atlas.findRegion("siKeyImg");
+        }
+
     }
 
     public class AssetNote {
@@ -100,6 +119,7 @@ public class Assets implements AssetErrorListener, Disposable {
         note = new AssetNote(atlas);
         this.fonts = new AssetFonts();
         decoration= new AssetDecoration(atlas);
+        this.noteImg = new AssetNoteImg(atlas);
 
     }
 
@@ -137,12 +157,12 @@ public class Assets implements AssetErrorListener, Disposable {
         public final BitmapFont heroInfo;
 //        public final BitmapFont heroStore;
         public final BitmapFont levelComplete;
-//        public final BitmapFont levelCompleted;
+        public final BitmapFont levelCompleted;
 //        public final BitmapFont selectCharacter;
 //        public final BitmapFont selectLevel;
 
         public AssetFonts() {
-            FreeTypeFontGenerator freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("wolfsbane2ii.ttf"));
+            FreeTypeFontGenerator freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("PartnerCondensedMono.ttf"));
             FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
             freeTypeFontParameter.size = 15;
             this.defaultSmall = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
@@ -166,11 +186,11 @@ public class Assets implements AssetErrorListener, Disposable {
             this.levelComplete = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
             this.levelComplete.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
             this.levelComplete.setScale(1.0f, 1.0f);
-//            freeTypeFontParameter.size = 35;
-//            this.levelCompleted = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
-//            this.levelCompleted.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-//            this.levelCompleted.setScale(1.0f, 1.0f);
-//            freeTypeFontParameter.size = 40;
+            freeTypeFontParameter.size = 35;
+            this.levelCompleted = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
+            this.levelCompleted.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            this.levelCompleted.setScale(1.0f, 1.0f);
+            freeTypeFontParameter.size = 40;
 //            this.selectLevel = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
 //            this.selectLevel.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 //            this.selectLevel.setScale(1.0f, 1.0f);

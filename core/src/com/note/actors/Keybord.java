@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.note.game.Assets;
 import com.note.utils.Constants;
 
 public class Keybord extends Actor {
@@ -16,6 +17,7 @@ public class Keybord extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
+//        textureRegion = Assets.instance.
         batch.draw(textureRegion,0,0,Constants.APP_WIDTH , textuerKeybordHeight);
 
     }

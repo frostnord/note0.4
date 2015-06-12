@@ -3,14 +3,12 @@ package com.note.actors;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.note.enums.GameState;
 import com.note.game.Assets;
 import com.note.screens.DirectedGame;
-import com.note.screens.ScripTreningScreen;
 import com.note.utils.Constants;
 import com.note.utils.GameManager;
 
@@ -25,7 +23,6 @@ public class Note extends Actor {
     private float index=0;
     private GameState gameState;
     private boolean isSecond;
-    private float speed = 0.7f;
 
 
     private Vector2 position;
@@ -79,10 +76,10 @@ public class Note extends Actor {
             batch.draw(lineImg, 55, position.y - lineImg.getRegionHeight() / 4 + 8, lineImg.getRegionWidth(), lineImg.getRegionHeight());
         }
         if (index== 17){
-            batch.draw(lineImg,602 ,position.y - lineImg.getRegionHeight()/4+8,lineImg.getRegionWidth(),lineImg.getRegionHeight());
+            batch.draw(lineImg,600 ,position.y - lineImg.getRegionHeight()/4+8,lineImg.getRegionWidth(),lineImg.getRegionHeight());
         }
         if (index==18){
-            batch.draw(lineImg,670 ,position.y - lineImg.getRegionHeight()/4+8,lineImg.getRegionWidth(),lineImg.getRegionHeight());
+            batch.draw(lineImg,600 ,position.y - lineImg.getRegionHeight()/4+8,lineImg.getRegionWidth(),lineImg.getRegionHeight());
         }
         if ((index == 19)||(index==20)){
             batch.draw(lineImg, 600, position.y - lineImg.getRegionHeight() / 4 + 8, lineImg.getRegionWidth(), lineImg.getRegionHeight());
@@ -98,18 +95,17 @@ public class Note extends Actor {
         }
         batch.draw(textureRegion, position.x, position.y, Constants.APP_WIDTH / 12, Constants.APP_HEIGHT / 10);
 
-        this.font = Assets.instance.fonts.levelComplete;
+        this.font = Assets.instance.fonts.levelCompleted;
         font.setColor(0, 0, 0, 1);
-        font.drawMultiLine(batch, note, position.x, position.y, 0, BitmapFont.HAlignment.CENTER);
-        font.drawMultiLine(batch, Float.toString( index), position.x+50, position.y, 0, BitmapFont.HAlignment.CENTER);
-//        if (GameManager.ourInstance.getGameState()== GameState.FIRSTPRESSED) {
+        font.drawMultiLine(batch, note, position.x+32, position.y+45, 0, BitmapFont.HAlignment.CENTER);
+//        font.drawMultiLine(batch, Float.toString( index), position.x+50, position.y, 0, BitmapFont.HAlignment.CENTER);
+//        if (GameManager.ourInstance.getGameState()== GameState.WAITKEYPRESS) {
     }
     public Note(DirectedGame directedGame) {
-        this.gameState = GameManager.ourInstance.getGameState();
         this.game = directedGame;
         randomNote();
         this.move= true;
-//        index = 22;
+//        index = 18;
 //        note ="mi";
         position = new Vector2(Constants.APP_WIDTH / (23) * index - 8,Constants.APP_HEIGHT - (Constants.APP_HEIGHT/5));
         this.isSecond=false;
@@ -118,10 +114,8 @@ public class Note extends Actor {
         scale = new Vector2(1, 1);
         rotation1 = 0;
     }
-    private void drawNote(Batch batch){
-//        batch.setColor();
 
-    }
+
     public void setNoteCliked(boolean isSecond){
         this.isSecond = isSecond;
     }
@@ -143,7 +137,6 @@ public class Note extends Actor {
     private float randomNote(){
         Random rand = new Random();
         index = rand.nextInt(22);
-//        System.out.println(index);
 
         if (( index==0)||(index==7)||(index==21)||(index==14)) {
             note = "mi";
@@ -173,25 +166,14 @@ public class Note extends Actor {
             note="re";
             System.out.println("re");
         }
-        //        switch (i){
-//            case (1 || 8 || 22 || 15);
         return index;
     }
 
     public void act(float delta) {
         super.act(delta);
-        if  (move) {
-            position.y -= 0.7;
-//        System.out.println(actorY);
+        if  (GameManager.ourInstance.getGameState()==GameState.MOVE) {
+            position.y -= 1;
         }
-
-//            if (position.y <= ScripTreningScreen.keybordHeight()) {
-//                if (isSecond){
-//                remove();
-//            }else {
-//                    move=false;
-//                }
-//        }
     }
 
 }

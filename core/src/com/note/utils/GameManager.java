@@ -16,7 +16,7 @@ public class GameManager {
     }
 
     private GameManager() {
-        gameState = GameState.FIRSTPRESSED;
+        gameState = GameState.MOVE;
     }
     public GameState getGameState() {
         return gameState;

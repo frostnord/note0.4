@@ -3,7 +3,6 @@ package com.note.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -12,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.note.actors.Note;
 import com.note.game.Assets;
 
 public class FirstMenuScreen extends AbstractGameScreen {
@@ -22,6 +22,7 @@ public class FirstMenuScreen extends AbstractGameScreen {
     private Image imgBackground;
     private Stage stage;
     private TextureAtlas atlas;
+    private Table layerKeyboard;
 
 
 
@@ -31,6 +32,12 @@ public class FirstMenuScreen extends AbstractGameScreen {
     private Button bassMenuImg;
     private Button settingsMenuImg;
     private Table layerSettings;
+    private Image keybordImg;
+    private float keybordHeight;
+    private Image lineImg;
+    private Table layerLines;
+    private Note oneMenuNote;
+    private Table layerNote;
 
     public FirstMenuScreen(DirectedGame directedGame) {
         super(directedGame);
@@ -114,12 +121,19 @@ public class FirstMenuScreen extends AbstractGameScreen {
 
         stage.act(delta);
         stage.draw();
+        if (oneMenuNote.getPosition().y==keybordHeight+15) {
+            oneMenuNote.remove();
+            oneMenuNote=null;
+        }
+        if (oneMenuNote==null){
+            layerNote.addActor(oneMenuNote = new Note(game));
+        }
     }
 
     private Table buildBackgroundLayer() {
         Table table = new Table();
-        this.imgBackground = new Image(this.game.gameSkin.getRegion("background"));
-        table.add(this.imgBackground);
+        this.imgBackground = new Image(this.game.gameSkin.getRegion("backgroundMenu"));
+        table.add(this.imgBackground).size(stage.getViewport().getWorldWidth(),stage.getViewport().getWorldHeight());
         return table;
     }
     private Table buildSettingsLayer() {
@@ -140,9 +154,11 @@ public class FirstMenuScreen extends AbstractGameScreen {
     }
     private Table buildControlsLayer() {
         final Table table = new Table();
-        table.center().bottom().padBottom(this.game.gameSkin.getRegion("ScripButton").getRegionWidth() / 2);
+        table.center().bottom().padBottom(104);
         this.scripMenuImg = new Button(this.game.gameSkin, "ScripButton");
+//        table.add(this.scripMenuImg).size(stage.getViewport().getWorldWidth() / 4,stage.getViewport().getWorldHeight() / 3 );
         table.add(this.scripMenuImg);
+        System.out.println(stage.getViewport().getWorldWidth() / 4);
         this.scripMenuImg.addListener(new ChangeListener() {
 
             @Override
@@ -153,6 +169,7 @@ public class FirstMenuScreen extends AbstractGameScreen {
         });
 
         this.bassMenuImg = new Button(this.game.gameSkin, "BassButton");
+//        table.add(this.bassMenuImg).padLeft(this.game.gameSkin.getRegion("BassButton").getRegionHeight() / 1.5f).size(stage.getViewport().getWorldWidth() / 4,stage.getViewport().getWorldHeight() / 3);
         table.add(this.bassMenuImg).padLeft(this.game.gameSkin.getRegion("BassButton").getRegionHeight() / 1.5f);
         this.bassMenuImg.addListener(new ChangeListener() {
 
@@ -167,13 +184,32 @@ public class FirstMenuScreen extends AbstractGameScreen {
         this.buildMenuLayers();
         this.assembleStage();
     }
+    private Table buildKeyboardLayer() {
+        final Table table = new Table();
+        table.center().bottom();
+        this.keybordImg = new Image(this.game.gameSkin, "keybord");
+        table.add(this.keybordImg);
+        keybordHeight = keybordImg.getTop();
+        return table;
+    }
 
     private void buildMenuLayers() {
         this.layerBackground = this.buildBackgroundLayer();
+        this.layerKeyboard=this.buildKeyboardLayer();
+        this.layerLines = this.buildLinesLayer();
+        this.layerNote = this.noteCreate();
         this.layerControls = this.buildControlsLayer();
         this.layerSettings = this.buildSettingsLayer();
-    }
 
+    }
+    private Table buildLinesLayer() {
+        Table table = new Table();
+        table.bottom().left().padBottom(keybordHeight);
+        this.lineImg = new Image(this.game.gameSkin, "lines");
+        table.add(this.lineImg);
+
+        return table;
+    }
 
 
     private void assembleStage() {
@@ -183,24 +219,32 @@ public class FirstMenuScreen extends AbstractGameScreen {
         stack.setSize(800.0f, 480.0f);
         stack.add(this.layerBackground);
         stack.add(this.layerSettings);
-
+        stack.add(this.layerKeyboard);
+//        stack.add(this.layerLines);
+//        stack.add(this.layerNote);
         stack.add(this.layerControls);
 
+    }
+    private Table noteCreate(){
+        Table table = new Table();
 
+        table.addActor(oneMenuNote = new Note(game));
 
-
+        return table;
     }
     @Override
      public void show() {
 
-        this.game.manager.load("sprites.atlas", TextureAtlas.class);
-        this.game.manager.finishLoading();
+            this.game.manager.load("sprites.atlas", TextureAtlas.class);
+            this.game.manager.finishLoading();
+
         Gdx.input.setCatchBackKey(true);
         this.stage = new Stage(){
             @Override
             public boolean keyUp(int keycode) {
                 if (keycode == Input.Keys.BACK) {
 //                    MenuScreen.this.exitGame();
+                    Gdx.app.exit();
                 }
                 return false;
             }
@@ -231,7 +275,7 @@ public class FirstMenuScreen extends AbstractGameScreen {
 
     @Override
     public void hide() {
-
+        this.stage.dispose();
     }
 
     @Override
