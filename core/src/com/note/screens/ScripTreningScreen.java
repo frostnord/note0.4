@@ -181,7 +181,6 @@ public class ScripTreningScreen extends AbstractGameScreen {
             stage.addActor(firstActor);
         }
             time += 1;
-//        }
         if (time >= 180f) {
             if (secondActor == null) {
                 secondActor = new Note(game);
