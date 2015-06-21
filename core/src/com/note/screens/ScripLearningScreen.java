@@ -178,6 +178,8 @@ public class ScripLearningScreen extends AbstractGameScreen {
         score();
     }
     private  void score (){
+
+
         float x =650;
         float y = 460;
 //        int fps = Gdx.graphics.getFramesPerSecond();
