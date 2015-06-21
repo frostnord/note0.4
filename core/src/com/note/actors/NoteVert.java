@@ -15,7 +15,7 @@ import com.note.utils.GameManager;
 import java.util.Random;
 
 
-public class Note extends Actor {
+public class NoteVert extends Actor {
 
     private TextureRegion textureRegion;
     private TextureRegion lineImg;
@@ -101,7 +101,7 @@ public class Note extends Actor {
 //        font.drawMultiLine(batch, Float.toString( index), position.x+50, position.y, 0, BitmapFont.HAlignment.CENTER);
 //        if (GameManager.ourInstance.getGameState()== GameState.WAITKEYPRESS) {
     }
-    public Note(DirectedGame directedGame) {
+    public NoteVert(DirectedGame directedGame) {
         this.game = directedGame;
         randomNote();
         this.move= true;

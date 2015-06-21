@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.note.actors.Note;
+import com.note.actors.NoteVert;
 import com.note.game.Assets;
 
 public class FirstMenuScreen extends AbstractGameScreen {
@@ -36,7 +36,7 @@ public class FirstMenuScreen extends AbstractGameScreen {
     private float keybordHeight;
     private Image lineImg;
     private Table layerLines;
-    private Note oneMenuNote;
+    private NoteVert oneMenuNoteVert;
     private Table layerNote;
 
     public FirstMenuScreen(DirectedGame directedGame) {
@@ -121,12 +121,12 @@ public class FirstMenuScreen extends AbstractGameScreen {
 
         stage.act(delta);
         stage.draw();
-        if (oneMenuNote.getPosition().y==keybordHeight+15) {
-            oneMenuNote.remove();
-            oneMenuNote=null;
+        if (oneMenuNoteVert.getPosition().y==keybordHeight+15) {
+            oneMenuNoteVert.remove();
+            oneMenuNoteVert =null;
         }
-        if (oneMenuNote==null){
-            layerNote.addActor(oneMenuNote = new Note(game));
+        if (oneMenuNoteVert ==null){
+            layerNote.addActor(oneMenuNoteVert = new NoteVert(game));
         }
     }
 
@@ -228,7 +228,7 @@ public class FirstMenuScreen extends AbstractGameScreen {
     private Table noteCreate(){
         Table table = new Table();
 
-        table.addActor(oneMenuNote = new Note(game));
+        table.addActor(oneMenuNoteVert = new NoteVert(game));
 
         return table;
     }

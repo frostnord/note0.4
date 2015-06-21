@@ -3,7 +3,6 @@ package com.note.screens;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -14,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.note.actors.Note;
+import com.note.actors.NoteVert;
 import com.note.enums.GameState;
 import com.note.game.Assets;
 import com.note.utils.GameManager;
@@ -31,7 +30,7 @@ public class ScripTreningScreen extends AbstractGameScreen {
     private Stage stage;
     private Table layerKeyboard;
     private Button keybordImg;
-    private Note firstActor, secondActor;
+    private NoteVert firstActor, secondActor;
     private GameState gameState;
     private static float keybordHeight;
     private Float time = 0f;
@@ -166,24 +165,19 @@ public class ScripTreningScreen extends AbstractGameScreen {
         if (keyStatus == KeyStatus.DOWN) {
             drawKey(key);
         }
-
-
         renderGuiFpsCounter();
-
-
     }
 
     public void controller(float delta) {
         if (firstActor == null) {
-
-            firstActor = new Note(game);
+            firstActor = new NoteVert(game);
             currIndex = firstActor.getIndex();
             stage.addActor(firstActor);
         }
             time += 1;
         if (time >= 180f) {
             if (secondActor == null) {
-                secondActor = new Note(game);
+                secondActor = new NoteVert(game);
                 stage.addActor(secondActor);
                 currIndex = nextIndex;
                 time = 0f;

@@ -9,12 +9,9 @@ import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 import com.note.actors.Background;
 import com.note.actors.Keybord;
-import com.note.actors.Note;
 import com.note.actors.VertLines;
 import com.note.actors.menu.*;
 import com.note.utils.Constants;
-
-import java.util.Random;
 
 public class GameStage extends Stage {
 

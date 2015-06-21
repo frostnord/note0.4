@@ -6,12 +6,14 @@ import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.utils.Disposable;
 
 public class Assets implements AssetErrorListener, Disposable {
@@ -163,7 +165,7 @@ public class Assets implements AssetErrorListener, Disposable {
 
         public AssetFonts() {
             FreeTypeFontGenerator freeTypeFontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("PartnerCondensedMono.ttf"));
-            FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+            FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontParameter();
             freeTypeFontParameter.size = 15;
             this.defaultSmall = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
             this.defaultSmall.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
@@ -186,11 +188,20 @@ public class Assets implements AssetErrorListener, Disposable {
             this.levelComplete = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
             this.levelComplete.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
             this.levelComplete.setScale(1.0f, 1.0f);
+
             freeTypeFontParameter.size = 35;
             this.levelCompleted = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
             this.levelCompleted.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
             this.levelCompleted.setScale(1.0f, 1.0f);
-            freeTypeFontParameter.size = 40;
+
+
+
+
+
+
+
+//            freeTypeFontParameter.size = 40;
+
 //            this.selectLevel = freeTypeFontGenerator.generateFont(freeTypeFontParameter);
 //            this.selectLevel.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 //            this.selectLevel.setScale(1.0f, 1.0f);
