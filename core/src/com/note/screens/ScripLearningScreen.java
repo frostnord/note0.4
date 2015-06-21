@@ -144,6 +144,10 @@ public class ScripLearningScreen extends AbstractGameScreen {
     }
 
     private Table buildBackgroundLayer() {
+
+
+
+
         Table table = new Table();
         this.imgBackground = new Image(this.game.gameSkin, "backgroundGame");
         table.add(this.imgBackground);
